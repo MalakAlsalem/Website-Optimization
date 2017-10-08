@@ -12,8 +12,8 @@ This is a project for Front-End Web Development Nanodegree from [Udacity][1].
 - Add different optimized *"pizzeria image"* to the page.
 
 **Result of PageSpeed Analysis:**
-For desktop: 97 / 100
-For mobile: 96 / 100
+- For desktop: 96 / 100
+- For mobile: 95 / 100
 
 ***
 **On main.js & pizza.html :**
