@@ -431,12 +431,6 @@ var oldSize;
 var newSize;
 var dx;
 var newwidth;
-// convert changeSliderLabel function into an object 
-var changeSliderLabel= {
-  "1": "Small",
-  "2": "Medium",
-  "3": "Large"
-};
 // convert sizeSwitcher function into an object 
 var sizeSwitcher = {
   "1": 0.25,
@@ -446,6 +440,23 @@ var sizeSwitcher = {
 // Set "document.getElementsByClassName("randomPizzaContainer");" in globle varible 
 var randomPC = document.getElementsByClassName("randomPizzaContainer");
 var resizePizzas = function(size) {
+  function changeSliderLabel(size) {
+    switch(size) {
+      case "1":
+        document.querySelector("#pizzaSize").innerHTML = "Small";
+        return;
+      case "2":
+        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        return;
+      case "3":
+        document.querySelector("#pizzaSize").innerHTML = "Large";
+        return;
+      default:
+        console.log("bug in changeSliderLabel");
+    }
+  }
+  changeSliderLabel(size);
+
   window.performance.mark("mark_start_resize");   // User Timing API function
   function determineDx (elem, size) {
     oldWidth = elem.offsetWidth;
