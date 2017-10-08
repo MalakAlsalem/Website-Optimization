@@ -2,7 +2,8 @@ Website Optimization Project
 ============================
 This is a project for Front-End Web Development Nanodegree from [Udacity][1].
 
-**What I did for improvement:**
+**Changes:**
+
 **On index. html page:**
 - Delete web font link to reduce requests for additional resource.
 - Add *media="print"* to make it only loads when user wants to print to avoid block rendering.
