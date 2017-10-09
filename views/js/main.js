@@ -149,7 +149,7 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
-// Make the varibles global
+// Make the variables global
 var dark;
 var colors;
 var whimsy;
@@ -225,7 +225,7 @@ function getAdj(x){
 }
 
 // Pulls noun out of array using random number sent from generator
-// Make the varibles global.
+// Make the variables global.
 var animals;
 var professions;
 var fantasy;
@@ -424,7 +424,7 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-// make varibles at global scope
+// make variables at global scope
 // replace "offsetwidth" with "clientWidth"
 var windowWidth = document.getElementById("randomPizzas").clientWidth;
 var oldWidth;
@@ -438,7 +438,7 @@ var sizeSwitcher = {
   "2": 0.3333,
   "3": 0.5
 };
-// Set "document.getElementsByClassName("randomPizzaContainer");" in globle varible 
+// Set "document.getElementsByClassName("randomPizzaContainer");" in globle variable
 var randomPC = document.getElementsByClassName("randomPizzaContainer");
 var resizePizzas = function(size) {
   function changeSliderLabel(size) {
@@ -515,7 +515,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// make global varibles
+// make global variables
 // Moves the sliding background pizzas based on scroll position
 var items = document.getElementsByClassName('mover');
 function updatePositions() {
@@ -524,7 +524,7 @@ function updatePositions() {
   // create itemL to stor length outside the loop
   var itemL = items.length;
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  // Create sTop varible to move calculate outside the loop
+  // Create sTop variable to move calculate outside the loop
   var sTop = scrollTop / 1250;
   var phase;
   for (var i = 0; i < itemL; i++) {
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   // Declaring elem variable outside loop as an array
   var elem=[];
-  // var i = 0;
+  //   // var i = 0;
   // var left= (i % cols) * s;
   // var top= (Math.floor(i / cols) * s) + 'px';
   for (i = 0; i < 100; i++) {

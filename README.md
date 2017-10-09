@@ -20,12 +20,12 @@ This is a project for Front-End Web Development Nanodegree from [Udacity][1].
 **On main.js & pizza.html :**
 - Optimize images via [optimizilla.com][2].
 - Replace all querySelector & querySelectorAll with getElementById & getElementsByClassName.
-- Make the varibles as a global varibles to avoid creation every time functions runs.
-- Convert *"sizeSwitcher function"* into an glabal varible as an object to reduce using loops & function calls.
+- Make the variables as a global variables to avoid creation every time functions runs.
+- Convert *"sizeSwitcher function"* into an glabal variable as an object to reduce using loops & function calls.
 - Declare *" dx, newwidth, and elem variables* and Pull *"pizzasDiv, randomPC, and moveP "* outside loops & functions to reduce calls. 
 - create *"randomL & itemL"* to store length outside loops to avoid access to check arrays length values at each iteration.
 - Replace "offsetwidth" with "clientWidth".
-- Create *"sTop varible"* to move calculate outside the loop.
+- Create *"sTop variable"* to move calculate outside the loop.
 - Minify CSS & JS files via [CSS Minifier][3] & [JavaScript Minifier][4].
 
 [1]:https://www.udacity.com/ 
