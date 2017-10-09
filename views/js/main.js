@@ -425,7 +425,8 @@ var pizzaElementGenerator = function(i) {
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 // make varibles at global scope
-var windowWidth = document.getElementById("randomPizzas").offsetWidth;
+// replace "offsetwidth" with "clientWidth"
+var windowWidth = document.getElementById("randomPizzas").clientWidth;
 var oldWidth;
 var oldSize;
 var newSize;
@@ -459,18 +460,20 @@ var resizePizzas = function(size) {
 
   window.performance.mark("mark_start_resize");   // User Timing API function
   function determineDx (elem, size) {
-    oldWidth = elem.offsetWidth;
+    oldWidth = elem.clientWidth;
     oldSize = oldWidth / windowWidth;
     newSize = sizeSwitcher[size];
     dx = (newSize - oldSize) * windowWidth;
     return dx;
   }
   // Iterates through pizza elements on the page and changes their widths 
-  // Pull "dx" and "newwidth" out of loop and function 
+  // Pull "dx" and "newwidth" outsid the loop
   dx = determineDx(randomPC[0], size);
-  newwidth = (randomPC[0].offsetWidth + dx) + 'px';
+  newwidth = (randomPC[0].clientWidth + dx) + 'px';
   function changePizzaSizes(size) {
-    for (var i = 0; i < randomPC.length; i++) {
+    // create randomL to store length outside the loop
+    randomL = randomPC.length;
+    for (var i = 0; i < randomL ; i++) {
       randomPC[i].style.width = newwidth;
     }
   }
@@ -486,9 +489,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-var pizzasDiv;
+// declare "pizzasDiv" variable outside the loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -512,24 +515,20 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-
+// make global varibles
 // Moves the sliding background pizzas based on scroll position
-// // make global varibles
-// var items = document.getElementsByClassName('mover');
-// var phase;
-
-  
+var items = document.getElementsByClassName('mover');
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  var sTop = document.body.scrollTop / 1250;
+  // create itemL to stor length outside the loop
+  var itemL = items.length;
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  // Create sTop varible to move calculate outside the loop
+  var sTop = scrollTop / 1250;
   var phase;
-  var items = document.getElementsByClassName('mover');
-  for (var i = 0; i < items.length; i++) {
-    // document.body.scrollTop is no longer supported in Chrome.
-    phase = Math.sin(sTop + (i % 5));
+  for (var i = 0; i < itemL; i++) {
+    phase = Math.sin(sTop+ (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -546,19 +545,26 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+// Declare "moveP" to get element outside the loop
+var moveP = document.getElementById("movingPizzas1");
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(elem);
+  // Declaring elem variable outside loop as an array
+  var elem=[];
+  // var i = 0;
+  // var left= (i % cols) * s;
+  // var top= (Math.floor(i / cols) * s) + 'px';
+  for (i = 0; i < 100; i++) {
+    elem[i] = document.createElement('img');
+    elem[i].className = 'mover';
+    elem[i].src = "images/pizza.png";
+    elem[i].style.height = "100px";
+    elem[i].style.width = "73.333px";
+    elem[i].basicLeft = (i % cols) * s;
+    elem[i].style.top = (Math.floor(i / cols) * s) + 'px';
+    moveP.appendChild(elem[i]);
   }
   // use requestAnimationFrame
   window.requestAnimationFrame(updatePositions);

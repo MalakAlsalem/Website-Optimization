@@ -22,9 +22,10 @@ This is a project for Front-End Web Development Nanodegree from [Udacity][1].
 - Replace all querySelector & querySelectorAll with getElementById & getElementsByClassName.
 - Make the varibles as a global varibles to avoid creation every time functions runs.
 - Convert *"sizeSwitcher function"* into an glabal varible as an object to reduce using loops & function calls.
-- Move *"scrollTop varible"* out of loop to avoid creation every time iside a loop. 
-- Set *"document.getElementsByClassName("randomPizzaContainer");" and "document.getElementById("movingPizzas1");"* in a globle varibles.
-- Pull *"dx" and "newwidth" varibles* out of loop and function to aviod recreate and recalculate them every time.
+- Declare *" dx, newwidth, and elem variables* and Pull *"pizzasDiv, randomPC, and moveP "* outside loops & functions to reduce calls. 
+- create *"randomL & itemL"* to store length outside loops to avoid access to check arrays length values at each iteration.
+- Replace "offsetwidth" with "clientWidth".
+- Create *"sTop varible"* to move calculate outside the loop.
 - Minify CSS & JS files via [CSS Minifier][3] & [JavaScript Minifier][4].
 
 [1]:https://www.udacity.com/ 
