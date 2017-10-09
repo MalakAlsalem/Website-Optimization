@@ -26,6 +26,7 @@ This is a project for Front-End Web Development Nanodegree from [Udacity][1].
 - create *"randomL & itemL"* to store length outside loops to avoid access to check arrays length values at each iteration.
 - Replace "offsetwidth" with "clientWidth".
 - Create *"sTop variable"* to move calculate outside the loop.
+- Create *"pizzaNum variable"* to calculate the number of pizzas based on browser window resolution.
 - Minify CSS & JS files via [CSS Minifier][3] & [JavaScript Minifier][4].
 
 [1]:https://www.udacity.com/ 

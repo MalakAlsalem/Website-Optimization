@@ -552,19 +552,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // Declaring elem variable outside loop as an array
-  var elem=[];
-  //   // var i = 0;
-  // var left= (i % cols) * s;
-  // var top= (Math.floor(i / cols) * s) + 'px';
-  for (i = 0; i < 100; i++) {
-    elem[i] = document.createElement('img');
-    elem[i].className = 'mover';
-    elem[i].src = "images/pizza.png";
-    elem[i].style.height = "100px";
-    elem[i].style.width = "73.333px";
-    elem[i].basicLeft = (i % cols) * s;
-    elem[i].style.top = (Math.floor(i / cols) * s) + 'px';
-    moveP.appendChild(elem[i]);
+  var elem;
+  // Create pizzaNum to calculate the number of pizzas
+  var pizzaNum = ((screen.height) / s)*cols;  
+  for (var i = 0; i < pizzaNum; i++) {
+    elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    moveP.appendChild(elem);
   }
   // use requestAnimationFrame
   window.requestAnimationFrame(updatePositions);
